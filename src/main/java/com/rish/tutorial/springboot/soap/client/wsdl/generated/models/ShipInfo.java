@@ -10,22 +10,20 @@ package com.rish.tutorial.springboot.soap.client.wsdl.generated.models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for shipInfo complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="shipInfo"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Student" type="{com/rish/tutorial/springboot/soap/server/xsd/models}Student"/&gt;
+ *         &lt;element name="shipInfoItem" type="{http://track.smsaexpress.com/SDMService/}ArrayOfShipmentInfo" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,37 +33,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "student"
+@XmlType(name = "shipInfo", propOrder = {
+    "shipInfoItem"
 })
-@XmlRootElement(name = "StudentDetailsResponse", namespace = "com/rish/tutorial/springboot/soap/server/xsd/models")
-public class StudentDetailsResponse {
+public class ShipInfo {
 
-    @XmlElement(name = "Student", namespace = "com/rish/tutorial/springboot/soap/server/xsd/models", required = true)
-    protected Student student;
+    protected ArrayOfShipmentInfo shipInfoItem;
 
     /**
-     * Gets the value of the student property.
+     * Gets the value of the shipInfoItem property.
      * 
      * @return
      *     possible object is
-     *     {@link Student }
+     *     {@link ArrayOfShipmentInfo }
      *     
      */
-    public Student getStudent() {
-        return student;
+    public ArrayOfShipmentInfo getShipInfoItem() {
+        return shipInfoItem;
     }
 
     /**
-     * Sets the value of the student property.
+     * Sets the value of the shipInfoItem property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Student }
+     *     {@link ArrayOfShipmentInfo }
      *     
      */
-    public void setStudent(Student value) {
-        this.student = value;
+    public void setShipInfoItem(ArrayOfShipmentInfo value) {
+        this.shipInfoItem = value;
     }
 
 }

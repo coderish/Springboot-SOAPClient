@@ -1,10 +1,13 @@
 package com.rish.tutorial.springboot.soap.client.adatper;
 
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
+import org.springframework.ws.soap.SoapMessage;
 
 public class SOAPConnector extends WebServiceGatewaySupport {
-	 
-    public Object callWebService(String url, Object request){
-        return getWebServiceTemplate().marshalSendAndReceive(url, request);
-    }
+
+	public Object callWebService(String url, Object request, String soapAction) {
+		return getWebServiceTemplate().marshalSendAndReceive(url, request, webServiceMessage -> {
+			((SoapMessage) webServiceMessage).setSoapAction(soapAction);
+		});
+	}
 }

@@ -10,7 +10,6 @@ package com.rish.tutorial.springboot.soap.client.wsdl.generated.models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Student" type="{com/rish/tutorial/springboot/soap/server/xsd/models}Student"/&gt;
+ *         &lt;element name="addElmShipResult" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +35,35 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "student"
+    "addElmShipResult"
 })
-@XmlRootElement(name = "StudentDetailsResponse", namespace = "com/rish/tutorial/springboot/soap/server/xsd/models")
-public class StudentDetailsResponse {
+@XmlRootElement(name = "addElmShipResponse")
+public class AddElmShipResponse {
 
-    @XmlElement(name = "Student", namespace = "com/rish/tutorial/springboot/soap/server/xsd/models", required = true)
-    protected Student student;
+    protected String addElmShipResult;
 
     /**
-     * Gets the value of the student property.
+     * Gets the value of the addElmShipResult property.
      * 
      * @return
      *     possible object is
-     *     {@link Student }
+     *     {@link String }
      *     
      */
-    public Student getStudent() {
-        return student;
+    public String getAddElmShipResult() {
+        return addElmShipResult;
     }
 
     /**
-     * Sets the value of the student property.
+     * Sets the value of the addElmShipResult property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Student }
+     *     {@link String }
      *     
      */
-    public void setStudent(Student value) {
-        this.student = value;
+    public void setAddElmShipResult(String value) {
+        this.addElmShipResult = value;
     }
 
 }

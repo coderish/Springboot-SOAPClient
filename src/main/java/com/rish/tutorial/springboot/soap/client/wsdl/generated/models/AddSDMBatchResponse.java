@@ -10,7 +10,6 @@ package com.rish.tutorial.springboot.soap.client.wsdl.generated.models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Student" type="{com/rish/tutorial/springboot/soap/server/xsd/models}Student"/&gt;
+ *         &lt;element name="addSDMBatchResult" type="{http://track.smsaexpress.com/SDMService/}shipResult" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +35,35 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "student"
+    "addSDMBatchResult"
 })
-@XmlRootElement(name = "StudentDetailsResponse", namespace = "com/rish/tutorial/springboot/soap/server/xsd/models")
-public class StudentDetailsResponse {
+@XmlRootElement(name = "addSDMBatchResponse")
+public class AddSDMBatchResponse {
 
-    @XmlElement(name = "Student", namespace = "com/rish/tutorial/springboot/soap/server/xsd/models", required = true)
-    protected Student student;
+    protected ShipResult addSDMBatchResult;
 
     /**
-     * Gets the value of the student property.
+     * Gets the value of the addSDMBatchResult property.
      * 
      * @return
      *     possible object is
-     *     {@link Student }
+     *     {@link ShipResult }
      *     
      */
-    public Student getStudent() {
-        return student;
+    public ShipResult getAddSDMBatchResult() {
+        return addSDMBatchResult;
     }
 
     /**
-     * Sets the value of the student property.
+     * Sets the value of the addSDMBatchResult property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Student }
+     *     {@link ShipResult }
      *     
      */
-    public void setStudent(Student value) {
-        this.student = value;
+    public void setAddSDMBatchResult(ShipResult value) {
+        this.addSDMBatchResult = value;
     }
 
 }

@@ -1,0 +1,492 @@
+<wsdl:definitions
+	xmlns:s="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:tns="http://track.smsaexpress.com/SDMService/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://track.smsaexpress.com/SDMService/">
+	<wsdl:documentation
+		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SMSA SDM Web API</wsdl:documentation>
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified"
+			targetNamespace="http://track.smsaexpress.com/SDMService/">
+			<s:element name="addSDMShip">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="passKey"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="awbNo"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="refNo"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="sentDate"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="idNo"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cName"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cntry"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cCity"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cZip"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cPOBox"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cMobile"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cTel1"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cTel2"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cAddr1"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cAddr2"
+							type="s:string" />
+						<s:element minOccurs="1" maxOccurs="1" name="PCs"
+							type="s:int" />
+						<s:element minOccurs="0" maxOccurs="1" name="cEmail"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="weight"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="itemDesc"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="addSDMShipResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="addSDMShipResult" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="resAWB">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="passKey"
+							type="s:string" />
+						<s:element minOccurs="1" maxOccurs="1" name="count"
+							type="s:int" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="resAWBResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="resAWBResult" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="addSDMBatch">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="passKey"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="shipInfor"
+							type="tns:shipInfo" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="shipInfo">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1"
+						name="shipInfoItem" type="tns:ArrayOfShipmentInfo" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfShipmentInfo">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded"
+						name="shipmentInfo" nillable="true" type="tns:shipmentInfo" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="shipmentInfo">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="awbNo"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="refNo"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="sentDate"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="idNo"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cntry"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cCity"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cZip"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cPOBox"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cMobile"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cTel1"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cTel2"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cAddr1"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cAddr2"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="PCs"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="cEmail"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="weight"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="itemDesc"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="addSDMBatchResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="addSDMBatchResult" type="tns:shipResult" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="shipResult">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1"
+						name="shipInforesu" type="tns:ArrayOfShipInfoRes" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfShipInfoRes">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded"
+						name="shipInfoRes" nillable="true" type="tns:shipInfoRes" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="shipInfoRes">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="awbNo"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Status"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="getTracking">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="awbNo"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="passkey"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="getTrackingResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="getTrackingResult" type="tns:TrackDetailsResponse" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="TrackDetailsResponse">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1"
+						name="RequestStatus" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ShipmentDetails" type="tns:ShipmentDetails" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="TrackingDetailsList" type="tns:ArrayOfTrackingDetails" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ShipmentDetails">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="AirWaybill"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="RecepientName" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ShipDate"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ShipmentCommitment" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ShipmentDestCity" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ShipmentDestCountry" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ShipmentOriginCity" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ShipmentOriginCountry" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ShipmentPieces" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ShipmentReference" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ShipmentShipper" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ShipmentWeight" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfTrackingDetails">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded"
+						name="TrackingDetails" nillable="true" type="tns:TrackingDetails" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="TrackingDetails">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="CountryCode"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Destination"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="EventDate"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="EventDesc"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="EventTime"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Office"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="POD"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Pieces"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="StatusCode"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="addElmShip">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="passKey"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="refNo"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="custName"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="custMobile"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="custCity"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="custOrg"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="addElmShipResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="addElmShipResult" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="addSDMShipSoapIn">
+		<wsdl:part name="parameters" element="tns:addSDMShip" />
+	</wsdl:message>
+	<wsdl:message name="addSDMShipSoapOut">
+		<wsdl:part name="parameters"
+			element="tns:addSDMShipResponse" />
+	</wsdl:message>
+	<wsdl:message name="resAWBSoapIn">
+		<wsdl:part name="parameters" element="tns:resAWB" />
+	</wsdl:message>
+	<wsdl:message name="resAWBSoapOut">
+		<wsdl:part name="parameters" element="tns:resAWBResponse" />
+	</wsdl:message>
+	<wsdl:message name="addSDMBatchSoapIn">
+		<wsdl:part name="parameters" element="tns:addSDMBatch" />
+	</wsdl:message>
+	<wsdl:message name="addSDMBatchSoapOut">
+		<wsdl:part name="parameters"
+			element="tns:addSDMBatchResponse" />
+	</wsdl:message>
+	<wsdl:message name="getTrackingSoapIn">
+		<wsdl:part name="parameters" element="tns:getTracking" />
+	</wsdl:message>
+	<wsdl:message name="getTrackingSoapOut">
+		<wsdl:part name="parameters"
+			element="tns:getTrackingResponse" />
+	</wsdl:message>
+	<wsdl:message name="addElmShipSoapIn">
+		<wsdl:part name="parameters" element="tns:addElmShip" />
+	</wsdl:message>
+	<wsdl:message name="addElmShipSoapOut">
+		<wsdl:part name="parameters"
+			element="tns:addElmShipResponse" />
+	</wsdl:message>
+	<wsdl:portType name="SDMWebServiceSoap">
+		<wsdl:operation name="addSDMShip">
+			<wsdl:documentation
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload Shipment Information with AWB number
+			</wsdl:documentation>
+			<wsdl:input message="tns:addSDMShipSoapIn" />
+			<wsdl:output message="tns:addSDMShipSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="resAWB">
+			<wsdl:documentation
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Reserve AWB numbers</wsdl:documentation>
+			<wsdl:input message="tns:resAWBSoapIn" />
+			<wsdl:output message="tns:resAWBSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="addSDMBatch">
+			<wsdl:documentation
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Shipments as batch</wsdl:documentation>
+			<wsdl:input message="tns:addSDMBatchSoapIn" />
+			<wsdl:output message="tns:addSDMBatchSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getTracking">
+			<wsdl:documentation
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Get Shipments Information by looking for Mobile Number
+			</wsdl:documentation>
+			<wsdl:input message="tns:getTrackingSoapIn" />
+			<wsdl:output message="tns:getTrackingSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="addElmShip">
+			<wsdl:documentation
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Shipments</wsdl:documentation>
+			<wsdl:input message="tns:addElmShipSoapIn" />
+			<wsdl:output message="tns:addElmShipSoapOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SDMWebServiceSoap"
+		type="tns:SDMWebServiceSoap">
+		<soap:binding
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="addSDMShip">
+			<soap:operation
+				soapAction="http://track.smsaexpress.com/SDMService/addSDMShip"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="resAWB">
+			<soap:operation
+				soapAction="http://track.smsaexpress.com/SDMService/resAWB"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="addSDMBatch">
+			<soap:operation
+				soapAction="http://track.smsaexpress.com/SDMService/addSDMBatch"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getTracking">
+			<soap:operation
+				soapAction="http://track.smsaexpress.com/SDMService/getTracking"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="addElmShip">
+			<soap:operation
+				soapAction="http://track.smsaexpress.com/SDMService/addElmShip"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="SDMWebServiceSoap12"
+		type="tns:SDMWebServiceSoap">
+		<soap12:binding
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="addSDMShip">
+			<soap12:operation
+				soapAction="http://track.smsaexpress.com/SDMService/addSDMShip"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="resAWB">
+			<soap12:operation
+				soapAction="http://track.smsaexpress.com/SDMService/resAWB"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="addSDMBatch">
+			<soap12:operation
+				soapAction="http://track.smsaexpress.com/SDMService/addSDMBatch"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getTracking">
+			<soap12:operation
+				soapAction="http://track.smsaexpress.com/SDMService/getTracking"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="addElmShip">
+			<soap12:operation
+				soapAction="http://track.smsaexpress.com/SDMService/addElmShip"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="SDMWebService">
+		<wsdl:documentation
+			xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SMSA SDM Web API</wsdl:documentation>
+		<wsdl:port name="SDMWebServiceSoap"
+			binding="tns:SDMWebServiceSoap">
+			<soap:address
+				location="http://track.smsaexpress.com/sdmservice/sdmwebservice.asmx" />
+		</wsdl:port>
+		<wsdl:port name="SDMWebServiceSoap12"
+			binding="tns:SDMWebServiceSoap12">
+			<soap12:address
+				location="http://track.smsaexpress.com/sdmservice/sdmwebservice.asmx" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
